@@ -1,0 +1,9 @@
+<div class="flex justify-center items-center py-4 mt-8 border-y border-slate-200">
+    <button @click="prevHandler"
+            :class="index == 0 ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'"
+            class="p-2 text-sm border border-slate-200 rounded transition-colors hover:border-slate-400">Précédent</button>
+    <span class="mx-auto"><span x-text="index+1"></span>-<span x-text="text.length"></span></span>
+    <button @click="nextHandler"
+            :class="index == text.length - 1 ? 'opacity-0 pointer-events-none' : 'opacity-100'"
+            class="p-2 text-sm border border-slate-200 rounded transition-colors hover:border-slate-400">Suivant</button>
+</div>

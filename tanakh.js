@@ -1,6 +1,6 @@
-export function torah() {
+export function tanakh() {
     document.addEventListener('alpine:init', () => {
-        Alpine.data('torah', () => ({
+        Alpine.data('tanakh', () => ({
             title: '',
             text: [],
             chapter: 0,

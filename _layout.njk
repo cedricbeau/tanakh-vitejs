@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./favicon.ico" rel="icon" type="image/x-icon">
-    <title>Tanakh</title>
+    <title>{{ title }}</title>
   </head>
   <body>
-    <body  class="flex flex-col min-h-screen pt-14 font-sans text-base leading-normal text-slate-600 overflow-x-hidden">
+    <body  class="flex flex-col min-h-screen pt-14 font-sans text-base leading-normal text-slate-600 overflow-x-hidden {{ body_class }}">
 
         {% include "./template-parts/_header.njk" %}
 
