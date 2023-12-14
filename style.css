@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.verses-container {
+    counter-reset: css-counter 0;
+}
+
+.verse {
+    counter-increment: css-counter 1;
+}
+
+.verse::before {
+    content: counter(css-counter);
+    margin-right: .5rem;
+
+    @apply text-slate-400;
+}
+
+@media (prefers-color-scheme: light) {
+
+}
