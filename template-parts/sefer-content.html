@@ -29,11 +29,11 @@
             <h2 class="mb-6 font-serif text-2xl" x-text="title"></h2>
 
             <template x-if="title == 'Tehilim - Psaumes'">
-                {% include './_tehilim.nkj' %}
+                {% include './tehilim.html' %}
             </template>
 
             <template x-if="title != 'Tehilim - Psaumes'">
-                {% include './_sefer-chapters.njk' %}
+                {% include './sefer-chapters.html' %}
             </template>
 
             <div class="flex justify-center my-8">

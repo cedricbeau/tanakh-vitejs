@@ -9,12 +9,12 @@
   <body>
     <body  class="flex flex-col min-h-screen pt-14 font-sans text-base leading-normal text-slate-600 overflow-x-hidden {{ body_class }}">
 
-        {% include "./template-parts/_header.njk" %}
+        {% include "./template-parts/header.html" %}
 
         {% block content %}
         {% endblock %}
 
-        {% include "./template-parts/_footer.njk" %}
+        {% include "./template-parts/footer.html" %}
 
         <script type="module" src="/main.js"></script>
       </body>

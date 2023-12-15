@@ -8,9 +8,9 @@
     <h1 class="my-10 font-serif text-4xl">{{ title }}</h1>
     <div  x-data="tanakh()"
           x-init="loadSefer()">
-        {{ sefer.sefer('Torah - Les 5 livres de Moïse', './_torah.njk') }}
-        {{ sefer.sefer('Nevi\'im - Prophètes', './_prophetes.njk') }}
-        {{ sefer.sefer('Ketouvim - Hagiographes', './_hagiographes.njk') }}
+        {{ sefer.sefer('Torah - Les 5 livres de Moïse', './torah.html') }}
+        {{ sefer.sefer('Nevi\'im - Prophètes', './prophetes.html') }}
+        {{ sefer.sefer('Ketouvim - Hagiographes', './hagiographes.html') }}
     </div>
 </main>
 {% endblock %}

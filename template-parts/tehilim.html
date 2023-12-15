@@ -1,6 +1,6 @@
 <div class="my-6">
     <div x-data="{ currentTab: 1 }">
-        <div class="flex items-center gap-x-4 mb-8">
+        <div class="flex items-center gap-x-4 mb-6">
             <button @click="currentTab = 1"
                     class="transition-colors hover:text-slate-900"
                     :class="currentTab === 1 ? 'text-slate-900' : 'text-slate-400'">Chapitres</button>
@@ -19,16 +19,16 @@
         </div>
         <div>
             <div x-show="currentTab === 1">
-                {% include './_sefer-chapters.njk' %}
+                {% include './sefer-chapters.html' %}
             </div>
             <div x-show="currentTab === 2">
-                {% include './_tehilim-cycle.njk' %}
+                {% include './tehilim-cycle.html' %}
             </div>
             <div x-show="currentTab === 3">
-                {% include './_tehilim-books.njk' %}
+                {% include './tehilim-books.html' %}
             </div>
             <div x-show="currentTab === 4">
-                {% include './_tikoun-haklali.njk' %}
+                {% include './tikoun-haklali.html' %}
             </div>
         </div>
     </div>

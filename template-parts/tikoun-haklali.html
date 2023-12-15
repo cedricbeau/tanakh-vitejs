@@ -2,7 +2,7 @@
     <ol class="flex flex-wrap gap-2">
         <template x-for="(chapters, index) in text" :key="index">
             <li class="w-10 h-10"
-                x-show="[15, 31, 40, 41, 58, 76, 89, 104, 136, 149].includes(index)"
+                x-show="tikounHaklali.includes(index)"
                 :id="index">
                 <button
                     @click="toggleChapter(index)"
@@ -16,7 +16,7 @@
     <template x-for="(chapters, index) in text" :key="index">
         <template x-if="chapterActive(index)">
             <div class="my-6"
-                 x-show="[15, 31, 40, 41, 58, 76, 89, 104, 136, 149].includes(index)">
+                 x-show="tikounHaklali.includes(index)">
 
                 <h3 class="my-6 font-serif text-xl">Tehilim  <span x-text="index + 1"></span></h3>
 
