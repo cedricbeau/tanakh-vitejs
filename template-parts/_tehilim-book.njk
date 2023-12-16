@@ -2,9 +2,15 @@
 <div x-data="{ open: true}"
      class="mb-6">
     <h3 @click="open = ! open"
-        class="pb-4 mb-4 border-b border-slate-200 text-xl text-slate-400">
+        class="flex justify-between items-center pb-4 mb-4 border-b border-slate-200 text-xl text-slate-400 cursor-pointer">
         <span>{{ title }}</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="16"
+             height="16"
+             fill="currentColor"
+             class="transform scale-y-[-1]"
+             :class="open ? '' : 'scale-y-100'"
+             viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
         </svg>
     </h3>

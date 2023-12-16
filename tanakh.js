@@ -282,6 +282,14 @@ export function tanakh() {
                 document.body.classList.remove('overflow-y-hidden');
             },
 
+            closeTehilim() {
+                this.chapter = 0;
+            },
+
+            openTikounHaklali() {
+                this.chapter = 15;
+            },
+
             /**
              *
              */

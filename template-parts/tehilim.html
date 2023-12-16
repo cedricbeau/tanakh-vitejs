@@ -1,19 +1,19 @@
 <div class="my-6">
     <div x-data="{ currentTab: 1 }">
         <div class="flex items-center gap-x-4 mb-6">
-            <button @click="currentTab = 1"
+            <button @click="currentTab = 1; closeTehilim()"
                     class="transition-colors hover:text-slate-900"
                     :class="currentTab === 1 ? 'text-slate-900' : 'text-slate-400'">Chapitres</button>
             <span class="w-2 h-2 bg-slate-500 rounded-full"></span>
-            <button @click="currentTab = 2"
+            <button @click="currentTab = 2; closeTehilim()"
                     class="transition-colors hover:text-slate-900"
                     :class="currentTab === 2 ? 'text-slate-900' : 'text-slate-400'">Cycle 30 jours</button>
             <span class="w-2 h-2 bg-slate-500 rounded-full"></span>
-            <button @click="currentTab = 3"
+            <button @click="currentTab = 3; closeTehilim()"
                     class="transition-colors hover:text-slate-900"
                     :class="currentTab === 3 ? 'text-slate-900' : 'text-slate-400'">Livres</button>
             <span class="w-2 h-2 bg-slate-500 rounded-full"></span>
-            <button @click="currentTab = 4"
+            <button @click="currentTab = 4; closeTehilim(); openTikounHaklali()"
                     class="transition-colors hover:text-slate-900"
                     :class="currentTab === 4 ? 'text-slate-900' : 'text-slate-400'">Tikoun Haklali</button>
         </div>
