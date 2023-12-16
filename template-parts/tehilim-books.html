@@ -1,1 +1,26 @@
-<div>Livres</div>
+{% import './_tehilim-book.njk' as book %}
+<div>
+    <div>
+        {{ book.book('Livre 1', 'tehilimBook1') }}
+        {{ book.book('Livre 2', 'tehilimBook2') }}
+        {{ book.book('Livre 3', 'tehilimBook3') }}
+        {{ book.book('Livre 4', 'tehilimBook4') }}
+        {{ book.book('Livre 5', 'tehilimBook5') }}
+    </div>
+    <template x-for="(chapters, index) in text" :key="index">
+        <template x-if="chapterActive(index)">
+            <div class="my-6">
+
+                <h3 class="my-6 font-serif text-xl">Tehilim  <span x-text="index + 1"></span></h3>
+
+                <div class="verses-container">
+                    <template x-for="(chapter, index) in chapters" :key="index">
+                        <p x-text="chapter"
+                        class="verse mb-2"></p>
+                    </template>
+                </div>
+
+            </div>
+        </template>
+    </template>
+</div>
