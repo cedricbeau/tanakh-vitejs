@@ -11,8 +11,11 @@
 
         {% include "./template-parts/header.html" %}
 
-        {% block content %}
-        {% endblock %}
+        <main class="flex-1 w-screen max-w-[95ch] px-4 mx-auto mb-10">
+            <h1 class="{{pagetitle}} my-10 font-serif text-4xl">{{ title }}</h1>
+            {% block content %}
+            {% endblock %}
+        </main>
 
         {% include "./template-parts/footer.html" %}
 

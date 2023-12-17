@@ -1,9 +1,11 @@
+{% set navlist = 'flex gap-x-4' %}
+{% set navlink = 'text-white transition-colors hover:text-slate-300' %}
+{% set navdescription = 'hidden' %}
+
 <header
-    class="fixed top-0 inset-x-0 flex justify-between items-center h-14 py-2.5 px-4 bg-slate-700">
-        <h1 class="text-2xl text-white">Tanakh</h1>
-        <span class="flex gap-2 text-sm text-white">
-            <span id="dtFr"></span>
-            <span>|</span>
-            <span id="dtHb"></span>
-        </span>
+    class="fixed top-0 inset-x-0 flex flex-wrap items-center gap-4 h-14 py-2.5 px-4 bg-slate-700">
+        <a href="./index.html"
+           title="Accueil"
+           class="mr-auto text-2xl text-white">Judaïsme</a>
+        {% include './navigation.html' %}
 </header>

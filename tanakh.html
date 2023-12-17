@@ -1,0 +1,13 @@
+{% set body_class = 'tanakh' %}
+{% set title = 'Tanakh' %}
+{% extends '_layout.njk' %}
+{% import './template-parts/_sefer.njk' as sefer %}
+
+{% block content %}
+    <div  x-data="tanakh()"
+          x-init="loadSefer()">
+        {{ sefer.sefer('Torah - Les 5 livres de Moïse', './torah.html') }}
+        {{ sefer.sefer('Nevi\'im - Prophètes', './prophetes.html') }}
+        {{ sefer.sefer('Ketouvim - Hagiographes', './hagiographes.html') }}
+    </div>
+{% endblock %}
