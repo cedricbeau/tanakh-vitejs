@@ -1,1 +1,51 @@
-<div>Cycle 30 jours</div>
+{% import './_tehilim-book.njk' as book %}
+<div>
+    <div>
+        {{ book.book('Jour 1', 'tehilimDay1') }}
+        {{ book.book('Jour 2', 'tehilimDay2') }}
+        {{ book.book('Jour 3', 'tehilimDay3') }}
+        {{ book.book('Jour 4', 'tehilimDay4') }}
+        {{ book.book('Jour 5', 'tehilimDay5') }}
+        {{ book.book('Jour 6', 'tehilimDay6') }}
+        {{ book.book('Jour 7', 'tehilimDay7') }}
+        {{ book.book('Jour 8', 'tehilimDay8') }}
+        {{ book.book('Jour 9', 'tehilimDay9') }}
+        {{ book.book('Jour 10', 'tehilimDay10') }}
+        {{ book.book('Jour 11', 'tehilimDay11') }}
+        {{ book.book('Jour 12', 'tehilimDay12') }}
+        {{ book.book('Jour 13', 'tehilimDay13') }}
+        {{ book.book('Jour 14', 'tehilimDay14') }}
+        {{ book.book('Jour 15', 'tehilimDay15') }}
+        {{ book.book('Jour 16', 'tehilimDay16') }}
+        {{ book.book('Jour 17', 'tehilimDay17') }}
+        {{ book.book('Jour 18', 'tehilimDay18') }}
+        {{ book.book('Jour 19', 'tehilimDay19') }}
+        {{ book.book('Jour 20', 'tehilimDay20') }}
+        {{ book.book('Jour 21', 'tehilimDay21') }}
+        {{ book.book('Jour 22', 'tehilimDay22') }}
+        {{ book.book('Jour 23', 'tehilimDay23') }}
+        {{ book.book('Jour 24', 'tehilimDay24') }}
+        {{ book.book('Jour 25', 'tehilimDay25') }}
+        {{ book.book('Jour 26', 'tehilimDay26') }}
+        {{ book.book('Jour 27', 'tehilimDay27') }}
+        {{ book.book('Jour 28', 'tehilimDay28') }}
+        {{ book.book('Jour 29', 'tehilimDay29') }}
+        {{ book.book('Jour 30', 'tehilimDay30') }}
+    </div>
+    <template x-for="(chapters, index) in text" :key="index">
+        <template x-if="chapterActive(index)">
+            <div class="my-6">
+
+                <h3 class="my-6 font-serif text-xl">Tehilim  <span x-text="index + 1"></span></h3>
+
+                <div class="verses-container">
+                    <template x-for="(chapter, index) in chapters" :key="index">
+                        <p x-text="chapter"
+                        class="verse mb-2"></p>
+                    </template>
+                </div>
+
+            </div>
+        </template>
+    </template>
+</div>
