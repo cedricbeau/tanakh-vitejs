@@ -20,3 +20,19 @@
 @media (prefers-color-scheme: light) {
 
 }
+
+body.tanakh header nav li:nth-child(2) {
+    @apply border-b border-white;
+}
+
+body.tehilim header nav li:nth-child(3) {
+    @apply border-b border-white;
+}
+
+body.pirkei-avot header nav li:nth-child(4) {
+    @apply border-b border-white;
+}
+
+body.vie-juive header nav li:nth-child(5) {
+    @apply border-b border-white;
+}

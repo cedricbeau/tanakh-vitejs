@@ -1,6 +1,7 @@
-{% set navlist = 'flex gap-x-4' %}
+{% set navlist = 'flex flex-col md:flex-row gap-6' %}
 {% set navlink = 'text-white transition-colors hover:text-slate-300' %}
 {% set navdescription = 'hidden' %}
+<!-- 2 nav : 1 desktop + 1 mobile -->
 
 <header x-data
     class="fixed top-0 inset-x-0  h-14 py-2.5 bg-slate-700">
@@ -8,13 +9,21 @@
         <a href="./index.html"
         title="Accueil"
         class="mr-auto text-2xl text-white">Judaïsme</a>
-        <button class="hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16" class="text-white">
-                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-            </svg>
-        </button>
-        <div class="block"
-            x-ref="navigation">
+        <div x-data="{ open: false}"
+             class="lg:hidden mobile-nav">
+            <button @click="open = ! open">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16" class="text-white">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                </svg>
+            </button>
+            <div x-show="open"
+                 class="absolute top-14 inset-x-0 py-4 bg-slate-700 border-t border-slate-400">
+                <div class="flex md:justify-end w-full max-w-[95ch] px-4 mx-auto">
+                    {% include './navigation.html' %}
+                </div>
+            </div>
+        </div>
+        <div class="hidden lg:block">
             {% include './navigation.html' %}
         </div>
     </div>
