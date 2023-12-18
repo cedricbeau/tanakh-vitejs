@@ -1,0 +1,25 @@
+{% set body_class = 'prophetes' %}
+{% set title = 'Nevi\'im - Prophètes' %}
+{% extends '_layout.njk' %}
+{% import './template-parts/_sefer.njk' as sefer %}
+{% import './template-parts/breadcrumb.html' as breadcrumb %}
+
+{% block content %}
+    <div class="order-first">
+        {% call breadcrumb.list() %}
+            {{ breadcrumb.item('Accueil', '/') }}
+            {{ breadcrumb.item('Tanakh', 'tanakh.html') }}
+            {{ breadcrumb.activeItem('Prophètes') }}
+        {% endcall %}
+    </div>
+    <div class="p-4 md:p-6 mb-6 md:mb-8 lg:mb-10 bg-slate-50 border border-slate-200 rouned">
+        <p class="mb-4">Le livre des Néviim est la <strong>deuxième partie du Tanakh</strong>. Il raconte <strong>l’histoire du peuple juif depuis la mort de Moïse jusqu’à la construction du Second Temple de Jérusalem</strong>, c'est-à-dire sur une période d’environ <strong>huit siècles !</strong></p>
+        <p class="mb-4">En hébreu, Névi'im signifie <strong>« Prophètes »</strong>, car cette période est <strong>dominée par l’activité des prophètes</strong> d’Israël qui guident le peuple en lui faisant connaître la volonté divine.</p>
+        <p class="mb-4">C’est du livre des Néviim que sont <strong>extraits les textes qui sont lus à la synagogue</strong> le samedi matin juste après la lecture de la Torah, et qui sont <strong>appelés Haftara</strong>.</p>
+        <p>Les Néviim sont composés d’un total de <strong></strong>dix-neuf livres traditionnellement regroupés en deux ensembles : les <strong>Néviim Richonim</strong> et les <strong>Néviim A’haronim</strong>.</p>
+    </div>
+    <div  x-data="tanakh()"
+        x-init="loadSefer()">
+        {{ sefer.sefer('Nevi\'im - Prophètes', './prophetes-content.html') }}
+    </div>
+{% endblock %}

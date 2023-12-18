@@ -1,14 +1,13 @@
 <div>
-    <ul class="grid grid-cols-1 sm:grid-cols-2 sm:gap-x-6">
+    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <template x-for="(sefer, index) in sefarim" :key="sefer.id">
-            <li :id="sefer.id"
-                class="pb-4 mb-4 border-b border-slate-200 last:border-b-0 last:mb-0 last:pb-0">
+            <li :id="sefer.id">
                 <button
                     :data-sefer="'sefer-' + sefer.id"
                     @click="loadSefer(sefarim[index].url); openSefer()"
                     class="group text-left">
-                    <span class="block mb-1.5 font-serif text-lg font-medium text-slate-800" x-text="sefer.name"></span>
-                    <span class="text-sm transition-colors group-hover:text-slate-400" x-text="sefer.resume"></span>
+                    <span class="block pb-2 mb-4 border-b border-slate-200 font-serif text-2xl text-slate-400 transition-colors group-hover:text-slate-900 group-hover:border-slate-400" x-text="sefer.name"></span>
+                    <span x-text="sefer.resume"></span>
                 </button>
             </li>
         </template>
@@ -26,15 +25,9 @@
 
          <div class="w-screen max-w-[80ch] h-full px-4 mx-auto my-8">
 
-            <h2 class="mb-6 font-serif text-2xl" x-text="title"></h2>
+            <h2 class="my-6 md:my-8 lg:my-10 font-serif text-4xl" x-text="title"></h2>
 
-            <template x-if="title == 'Tehilim - Psaumes'">
-                {% include './tehilim.html' %}
-            </template>
-
-            <template x-if="title != 'Tehilim - Psaumes'">
-                {% include './sefer-chapters.html' %}
-            </template>
+            {% include './sefer-chapters.html' %}
 
             <div class="flex justify-center my-8">
                 <button @click="$refs.top.scrollTo({top: 0, behavior: 'smooth'})"

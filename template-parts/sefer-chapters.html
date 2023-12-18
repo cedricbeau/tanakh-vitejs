@@ -15,7 +15,13 @@
         <template x-if="chapterActive(index)">
             <div class="my-6">
 
-                <h3 class="my-6 font-serif text-xl">Chapitre  <span x-text="index + 1"></span></h3>
+                <template x-if="title === 'Tehilim - Psaumes'">
+                    <h3 class="my-6 font-serif text-xl">Tehilim  <span x-text="index + 1"></span></h3>
+                </template>
+
+                <template x-if="title != 'Tehilim - Psaumes'">
+                    <h3 class="my-6 font-serif text-xl">Chapitre  <span x-text="index + 1"></span></h3>
+                </template>
 
                 <div class="verses-container">
                     <template x-for="(chapter, index) in chapters" :key="index">

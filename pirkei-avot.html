@@ -1,7 +1,14 @@
 {% set body_class = 'pirkei-avot' %}
 {% set title = 'Pirkei Avot' %}
 {% extends '_layout.njk' %}
+{% import './template-parts/breadcrumb.html' as breadcrumb %}
 
 {% block content %}
+    <div class="order-first">
+        {% call breadcrumb.list() %}
+            {{ breadcrumb.item('Accueil', '/') }}
+            {{ breadcrumb.activeItem('Pirkei Avot') }}
+        {% endcall %}
+    </div>
 
 {% endblock %}

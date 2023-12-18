@@ -1,0 +1,24 @@
+{% set body_class = 'hagiographes' %}
+{% set title = 'Ketouvim - Hagiographes' %}
+{% extends '_layout.njk' %}
+{% import './template-parts/_sefer.njk' as sefer %}
+{% import './template-parts/breadcrumb.html' as breadcrumb %}
+
+{% block content %}
+    <div class="order-first">
+        {% call breadcrumb.list() %}
+            {{ breadcrumb.item('Accueil', '/') }}
+            {{ breadcrumb.item('Tanakh', 'tanakh.html') }}
+            {{ breadcrumb.activeItem('Hagiographes') }}
+        {% endcall %}
+    </div>
+    <div class="p-4 md:p-6 mb-6 md:mb-8 lg:mb-10 bg-slate-50 border border-slate-200 rouned">
+        <p class="mb-4"><strong>Le livre des Kétouvim est la troisième partie du Tanakh</strong>. Il est composé de <strong>textes très variés</strong>, c’est pourquoi on l’appelle tout simplement <strong>« Écrits » - Kétouvim</strong> en hébreu.</p>
+        <p class="mb-4">On y trouve, comme dans les autres livres du Tanakh, des récits, des histoires, mais aussi des écrits plus poétiques comme les <strong>Psaumes ou les Proverbes</strong>. De nombreux <strong>psaumes sont chantés</strong> pendant <strong>les offices à la synagogue.</strong></p>
+        <p>Parmi les Kétouvim, <strong>cinq livres sont écrits</strong> traditionnellement sur des rouleaux <strong>de parchemin</strong> pour être lus à la synagogue à l’occasion de certaines fêtes. On les appelle les <strong>’Hamech Méguilot</strong> (les « cinq rouleaux »), comme par exemple <strong>la méguila d’Esther qui est lue à Pourim.</strong></p>
+    </div>
+    <div  x-data="tanakh()"
+        x-init="loadSefer()">
+        {{ sefer.sefer('Ketouvim - Hagiographes', './hagiographes.html') }}
+    </div>
+{% endblock %}

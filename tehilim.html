@@ -1,7 +1,18 @@
 {% set body_class = 'tehilim' %}
-{% set title = 'Tehilim' %}
+{% set title = 'Tehilim - Psaumes' %}
 {% extends '_layout.njk' %}
+{% import './template-parts/_sefer.njk' as sefer %}
+{% import './template-parts/breadcrumb.html' as breadcrumb %}
 
 {% block content %}
-
+    <div class="order-first">
+        {% call breadcrumb.list() %}
+            {{ breadcrumb.item('Accueil', '/') }}
+            {{ breadcrumb.activeItem('Tehilim') }}
+        {% endcall %}
+    </div>
+    <div  x-data="tanakh()"
+        x-init="loadSefer('./hagiographes/tehilim.json')">
+        {% include './template-parts/tehilim-content.html' %}
+    </div>
 {% endblock %}

@@ -1,0 +1,24 @@
+{% set body_class = 'torah' %}
+{% set title = 'Torah - Les 5 livres de Moïse' %}
+{% extends '_layout.njk' %}
+{% import './template-parts/_sefer.njk' as sefer %}
+{% import './template-parts/breadcrumb.html' as breadcrumb %}
+
+{% block content %}
+    <div class="order-first">
+        {% call breadcrumb.list() %}
+            {{ breadcrumb.item('Accueil', '/') }}
+            {{ breadcrumb.item('Tanakh', 'tanakh.html') }}
+            {{ breadcrumb.activeItem('Torah') }}
+        {% endcall %}
+    </div>
+    <div class="p-4 md:p-6 mb-6 md:mb-8 lg:mb-10 bg-slate-50 border border-slate-200 rouned">
+        <p class="mb-4"><strong>La Torah est la première partie du Tanakh</strong>. C’est le livre <strong>le plus sacré du judaïsme</strong>. Elle est composée de cinq livres que l’on appelle parfois les cinq livres de Moïse car, selon la tradition, <strong>ils furent dictés par Dieu à Moïse</strong>.</p>
+        <p class="mb-4">Lorsque tout le texte de la Torah est écrit à la main sur un parchemin, on l’appelle <strong>séfer Torah</strong>. C’est sous cette forme que la Torah est <strong>lue pendant les offices à la synagogue</strong>. Chaque Chabbat, on lit une partie de la Torah, appelée <strong>paracha</strong>.</p>
+        <p>Lorsque la Torah est <strong>imprimée</strong> sur du papier dans un livre relié, on l’appelle en hébreu <strong>’Houmach</strong>. Ce mot dérive du mot ’hamech, qui signifie « cinq ». En français, on l’appelle aussi <strong>Pentateuque</strong> : ce mot vient du grec « penta » qui signifie… <strong>« cinq »</strong> !</p>
+    </div>
+    <div  x-data="tanakh()"
+        x-init="loadSefer()">
+        {{ sefer.sefer('Torah - Les 5 livres de Moïse', './torah-content.html') }}
+    </div>
+{% endblock %}

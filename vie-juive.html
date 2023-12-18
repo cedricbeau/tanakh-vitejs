@@ -1,8 +1,15 @@
 {% set body_class = 'vie-juive' %}
 {% set title = 'Vie Juive' %}
 {% extends '_layout.njk' %}
+{% import './template-parts/breadcrumb.html' as breadcrumb %}
 
 {% block content %}
+    <div class="order-first">
+        {% call breadcrumb.list() %}
+            {{ breadcrumb.item('Accueil', '/') }}
+            {{ breadcrumb.activeItem('Vie juive') }}
+        {% endcall %}
+    </div>
 
 
 {% endblock %}

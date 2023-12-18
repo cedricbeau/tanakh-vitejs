@@ -2,10 +2,18 @@
 {% set navlink = 'text-white transition-colors hover:text-slate-300' %}
 {% set navdescription = 'hidden' %}
 
-<header
+<header x-data
     class="fixed top-0 inset-x-0 flex flex-wrap items-center gap-4 h-14 py-2.5 px-4 bg-slate-700">
         <a href="./index.html"
            title="Accueil"
            class="mr-auto text-2xl text-white">Judaïsme</a>
-        {% include './navigation.html' %}
+        <button class="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16" class="text-white">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+            </svg>
+        </button>
+        <div class="block"
+             x-ref="navigation">
+            {% include './navigation.html' %}
+        </div>
 </header>

@@ -2,12 +2,33 @@
 {% set title = 'Tanakh' %}
 {% extends '_layout.njk' %}
 {% import './template-parts/_sefer.njk' as sefer %}
+{% import './template-parts/breadcrumb.html' as breadcrumb %}
 
 {% block content %}
-    <div  x-data="tanakh()"
-          x-init="loadSefer()">
-        {{ sefer.sefer('Torah - Les 5 livres de Moïse', './torah.html') }}
-        {{ sefer.sefer('Nevi\'im - Prophètes', './prophetes.html') }}
-        {{ sefer.sefer('Ketouvim - Hagiographes', './hagiographes.html') }}
+    <div class="order-first">
+        {% call breadcrumb.list() %}
+            {{ breadcrumb.item('Accueil', '/') }}
+            {{ breadcrumb.activeItem('Tanakh') }}
+        {% endcall %}
     </div>
+    <div class="p-4 md:p-6 mb-6 md:mb-8 lg:mb-10 bg-slate-50 border border-slate-200 rouned">
+        <p class="mb-4">La Bible hébraïque est formée de 3 grands livres, eux-mêmes composés d’un certain nombre de livres. Ces 3 grands livres s’appellent en hébreu  « <strong>Torah</strong> », « <strong>Néviim</strong> » et  « <strong>Kétouvim</strong> ».</p>
+        <p class="mb-4">Si on prend la première lettre de chacun - le <strong>Tav</strong> de Torah, le<strong>Noun</strong> de Néviim et le <strong>Kaf</strong> de Kétouvim - et que l’on vocalise avec la voyelle « a », on obtient le mot <strong>TaNaKH</strong>, qui est le nom de la <strong>Bible</strong> en hébreu. On remarquera que le Kaf de Kétouvim est devenu un Khaf final car il ne se trouve plus au début mais à la fin d’un mot.</p>
+        <p class="mb-4">Le Tanakh contient des textes très anciens qui racontent l’histoire du monde à ses débuts, puis l’histoire du peuple juif depuis Abraham jusqu’à la construction du Second Temple de Jérusalem. C’est ce que l’on appelle l’histoire biblique. Elle raconte les origines et la naissance du judaïsme. La première partie du Tanakh - la Torah - contient aussi de nombreuses lois, comme les Dix Commandements, le repos du Chabbat, les règles de la cacherout…</p>
+        <p>L’étude du Tanakh est absolument centrale dans le judaïsme, et en particulier la Torah, qui est considérée comme le livre le plus sacré.</p>
+    </div>
+    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <li class="relative">
+            <a href="./torah.html" title="Torah - Les 5 livres de Moïse" class="block pb-2 mb-4 border-b border-slate-200 font-serif text-2xl text-slate-400 transition-colors hover:text-slate-900 hover:border-slate-400 after:absolute after:inset-0">Torah - Les 5 livres de Moïse</a>
+            <p>La Torah est la première partie du Tanakh. C’est le livre le plus sacré du judaïsme. Elle est composée de cinq livres que l’on appelle parfois les cinq livres de Moïse car, selon la tradition, ils furent dictés par Dieu à Moïse.</p>
+        </li>
+        <li class="relative">
+            <a href="./prophetes.html" title="Nevi'im - Prophètes" class="block pb-2 mb-4 border-b border-slate-200 font-serif text-2xl text-slate-400 transition-colors hover:text-slate-900 hover:border-slate-400 after:absolute after:inset-0">Nevi'im - Prophètes</a>
+            <p>Le livre des Néviim est la deuxième partie du Tanakh. Il raconte l’histoire du peuple juif depuis la mort de Moïse jusqu’à la construction du Second Temple de Jérusalem, c'est-à-dire sur une période d’environ huit siècles !</p>
+        </li>
+        <li class="relative">
+            <a href="./hagiographes.html" title="Ketouvim - Hagiographes" class="block pb-2 mb-4 border-b border-slate-200 font-serif text-2xl text-slate-400 transition-colors hover:text-slate-900 hover:border-slate-400 after:absolute after:inset-0">Ketouvim - Hagiographes</a>
+            <p>Le livre des Kétouvim est la troisième partie du Tanakh. Il est composé de textes très variés, c’est pourquoi on l’appelle tout simplement « Écrits » - Kétouvim en hébreu.</p>
+        </li>
+    </ul>
 {% endblock %}
