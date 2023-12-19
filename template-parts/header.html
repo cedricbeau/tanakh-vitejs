@@ -4,20 +4,28 @@
 <!-- 2 nav : 1 desktop + 1 mobile -->
 
 <header x-data
-    class="fixed top-0 inset-x-0  h-14 py-2.5 bg-slate-700">
+    class="fixed top-0 inset-x-0 z-10 h-14 py-2.5 bg-slate-700">
     <div class="flex flex-wrap items-center gap-4 w-full max-w-[95ch] px-4 mx-auto">
         <a href="./index.html"
         title="Accueil"
         class="mr-auto text-2xl text-white">Judaïsme</a>
         <div x-data="{ open: false}"
              class="lg:hidden mobile-nav">
-            <button @click="open = ! open">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16" class="text-white">
-                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+            <button @click="open = ! open"
+                    class="p-1 border border-slate-500 rouned">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" data-slot="icon"
+                     class="w-6 h-6 text-slate-300"
+                     :class="open ? 'hidden' : 'block'">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" data-slot="icon"
+                     class="w-6 h-6 text-slate-300"
+                     :class="open ? 'block' : 'hidden'">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
             </button>
             <div x-show="open"
-                 class="absolute top-14 inset-x-0 py-4 bg-slate-700 border-t border-slate-400">
+                 class="absolute top-14 inset-x-0 z-10 py-4 bg-slate-700 border-t border-slate-500">
                 <div class="flex md:justify-end w-full max-w-[95ch] px-4 mx-auto">
                     {% include './navigation.html' %}
                 </div>
