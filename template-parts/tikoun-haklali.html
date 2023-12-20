@@ -1,4 +1,6 @@
- <div>
+ <div x-data="{
+    tikounHaklali: [15, 31, 40, 41, 58, 76, 89, 104, 136, 149]
+ }">
     <ol class="flex flex-wrap gap-2">
         <template x-for="(chapters, index) in text" :key="index">
             <li class="w-10 h-10"

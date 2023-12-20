@@ -1,15 +1,14 @@
 {% set navlist = 'flex flex-col md:flex-row gap-6' %}
 {% set navlink = 'text-white transition-colors hover:text-slate-300' %}
 {% set navdescription = 'hidden' %}
-<!-- 2 nav : 1 desktop + 1 mobile -->
 
 <header x-data
-    class="fixed top-0 inset-x-0 z-10 h-14 py-2.5 bg-slate-700">
+        class="fixed top-0 inset-x-0 z-10 h-14 py-2.5 bg-slate-700">
     <div class="flex flex-wrap items-center gap-4 w-full max-w-[95ch] px-4 mx-auto">
         <a href="./index.html"
-        title="Accueil"
-        class="mr-auto text-2xl text-white">Judaïsme</a>
-        <div x-data="{ open: false}"
+           title="Accueil"
+           class="mr-auto text-2xl text-white">Judaïsme</a>
+        <div x-data="{ open: false }"
              class="lg:hidden mobile-nav">
             <button @click="open = ! open"
                     class="p-1 border border-slate-500 rouned">
