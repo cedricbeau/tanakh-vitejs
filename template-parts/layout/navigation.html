@@ -1,28 +1,29 @@
 <div x-data="{
+    baseUrl: window.location.origin,
     navigation: {
         1: {
             id: 1,
             title: 'Tanakh',
             description: 'La Bible hébraïque est formée de 3 grands livres, eux-mêmes composés d’un certain nombre de livres. Ces 3 grands livres s’appellent en hébreu  « Torah », « Néviim » et  « Kétouvim ».',
-            url: 'tanakh.html'
+            url: '/pages/tanakh.html'
         },
         2: {
             id: 2,
             title: 'Tehilim',
             description: 'Les psaumes (ou Téhilim en hébreu) de David au nombre de 150 sont composés de versets sans ordre précis. Cinq chapitres inégaux se partagent l\'ensemble.',
-            url: 'tehilim.html'
+            url: '/pages/tehilim.html'
         },
         3: {
             id: 3,
             title: 'Pirkei Avot',
             description : 'Les Pirkei Avot sont composés d’un ensemble de préceptes, expression d’une morale élevée, d’un idéal de vie que nous sommes conviés à faire nôtre.',
-            url: 'pirkei-avot.html'
+            url: '/pages/pirkei-avot.html'
         },
         4: {
             id: 4,
             title: 'Vie juive',
             description : 'Les fêtes, le Shabbat, l\'étude, la cacherout',
-            url: 'vie-juive.html'
+            url: '/pages/vie-juive.html'
         }
     }
 }">
@@ -30,7 +31,7 @@
         <ul class="{{ navlist }}">
             <template x-for="link in Object.values(navigation)">
                 <li class="relative">
-                    <a :href="link.url"
+                    <a :href="baseUrl+link.url"
                        :title="link.title"
                        class="{{ navlink }}">
                         <span x-text="link.title"></span>

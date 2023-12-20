@@ -9,7 +9,7 @@
   <body>
     <body  class="flex flex-col min-h-screen pt-14 font-sans text-base leading-normal text-slate-600 overflow-x-hidden {{ body_class }}">
 
-        {% include "./template-parts/header.html" %}
+        {% include "./template-parts/layout/header.html" %}
 
         <main class="flex flex-col flex-1 w-full max-w-[95ch] px-4 mx-auto mb-10">
             <h1 class="{{pagetitle}} my-6 md:my-8 lg:my-10 font-serif text-4xl">{{ title }}</h1>
@@ -17,7 +17,7 @@
             {% endblock %}
         </main>
 
-        {% include "./template-parts/footer.html" %}
+        {% include "./template-parts/layout/footer.html" %}
 
         <script type="module" src="/main.js"></script>
       </body>

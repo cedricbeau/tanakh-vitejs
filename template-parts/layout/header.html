@@ -2,10 +2,12 @@
 {% set navlink = 'text-white transition-colors hover:text-slate-300' %}
 {% set navdescription = 'hidden' %}
 
-<header x-data
+<header x-data="{
+            baseUrl: window.location.origin
+        }"
         class="fixed top-0 inset-x-0 z-10 h-14 py-2.5 bg-slate-700">
     <div class="flex flex-wrap items-center gap-4 w-full max-w-[95ch] px-4 mx-auto">
-        <a href="./index.html"
+        <a :href="baseUrl"
            title="Accueil"
            class="mr-auto text-2xl text-white">Judaïsme</a>
         <div x-data="{ open: false }"

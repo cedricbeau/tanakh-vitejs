@@ -17,18 +17,35 @@
         <p class="mb-4">Le Tanakh contient des textes très anciens qui racontent l’histoire du monde à ses débuts, puis l’histoire du peuple juif depuis Abraham jusqu’à la construction du Second Temple de Jérusalem. C’est ce que l’on appelle l’histoire biblique. Elle raconte les origines et la naissance du judaïsme. La première partie du Tanakh - la Torah - contient aussi de nombreuses lois, comme les Dix Commandements, le repos du Chabbat, les règles de la cacherout…</p>
         <p>L’étude du Tanakh est absolument centrale dans le judaïsme, et en particulier la Torah, qui est considérée comme le livre le plus sacré.</p>
     </div>
-    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <li class="relative">
-            <a href="./torah.html" title="Torah - Les 5 livres de Moïse" class="block pb-2 mb-4 border-b border-slate-200 font-serif text-2xl text-slate-400 transition-colors hover:text-slate-900 hover:border-slate-400 after:absolute after:inset-0">Torah - Les 5 livres de Moïse</a>
-            <p>La Torah est la première partie du Tanakh. C’est le livre le plus sacré du judaïsme. Elle est composée de cinq livres que l’on appelle parfois les cinq livres de Moïse car, selon la tradition, ils furent dictés par Dieu à Moïse.</p>
-        </li>
-        <li class="relative">
-            <a href="./prophetes.html" title="Nevi'im - Prophètes" class="block pb-2 mb-4 border-b border-slate-200 font-serif text-2xl text-slate-400 transition-colors hover:text-slate-900 hover:border-slate-400 after:absolute after:inset-0">Nevi'im - Prophètes</a>
-            <p>Le livre des Néviim est la deuxième partie du Tanakh. Il raconte l’histoire du peuple juif depuis la mort de Moïse jusqu’à la construction du Second Temple de Jérusalem, c'est-à-dire sur une période d’environ huit siècles !</p>
-        </li>
-        <li class="relative">
-            <a href="./hagiographes.html" title="Ketouvim - Hagiographes" class="block pb-2 mb-4 border-b border-slate-200 font-serif text-2xl text-slate-400 transition-colors hover:text-slate-900 hover:border-slate-400 after:absolute after:inset-0">Ketouvim - Hagiographes</a>
-            <p>Le livre des Kétouvim est la troisième partie du Tanakh. Il est composé de textes très variés, c’est pourquoi on l’appelle tout simplement « Écrits » - Kétouvim en hébreu.</p>
-        </li>
+    <ul x-data="{
+            baseUrl: window.location.origin,
+            navigation: {
+                1: {
+                    id: 1,
+                    title: 'Torah - Les 5 livres de Moïse',
+                    description: 'La Torah est la première partie du Tanakh. C’est le livre le plus sacré du judaïsme. Elle est composée de cinq livres que l’on appelle parfois les cinq livres de Moïse car, selon la tradition, ils furent dictés par Dieu à Moïse.',
+                    url: '/pages/torah.html'
+                },
+                2: {
+                    id: 2,
+                    title: 'Nevi\'im - Prophètes',
+                    description: 'Le livre des Néviim est la deuxième partie du Tanakh. Il raconte l\’histoire du peuple juif depuis la mort de Moïse jusqu\’à la construction du Second Temple de Jérusalem, c\'est-à-dire sur une période d\’environ huit siècles !',
+                    url: '/pages/prophetes.html'
+                },
+                3: {
+                    id: 3,
+                    title: 'Ketouvim - Hagiographes',
+                    description : 'Le livre des Kétouvim est la troisième partie du Tanakh. Il est composé de textes très variés, c\’est pourquoi on l\’appelle tout simplement « Écrits » - Kétouvim en hébreu.',
+                    url: '/pages/hagiographes.html'
+                }
+            }
+        }"
+        class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <template x-for="link in navigation">
+            <li class="relative">
+                <a :href="baseUrl+link.url" :title="link.title" class="block pb-2 mb-4 border-b border-slate-200 font-serif text-2xl text-slate-400 transition-colors hover:text-slate-900 hover:border-slate-400 after:absolute after:inset-0" x-text="link.title"></a>
+                <p x-text="link.description"></p>
+            </li>
+        </template>
     </ul>
 {% endblock %}
