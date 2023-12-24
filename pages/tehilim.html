@@ -11,8 +11,8 @@
             {{ breadcrumb.activeItem('Tehilim') }}
         {% endcall %}
     </div>
-    <div  x-data="tanakh()"
-          x-init="loadSefer('../datas/hagiographes/tehilim.json')">
+    <div  x-data="tehilim()"
+          x-init="loadTehilim()">
         {% include './template-parts/tehilim-content.html' %}
     </div>
 {% endblock %}
