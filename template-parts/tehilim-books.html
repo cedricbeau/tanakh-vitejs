@@ -1,18 +1,40 @@
-{% import './_tehilim-book.njk' as book %}
-<div x-data="{
-    tehilimBook1: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40],
-    tehilimBook2: [41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71],
-    tehilimBook3: [72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88],
-    tehilimBook4: [89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105],
-    tehilimBook5: [106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149]
-}">
+<div>
     <div>
-        {{ book.book('Livre 1', 'tehilimBook1') }}
-        {{ book.book('Livre 2', 'tehilimBook2') }}
-        {{ book.book('Livre 3', 'tehilimBook3') }}
-        {{ book.book('Livre 4', 'tehilimBook4') }}
-        {{ book.book('Livre 5', 'tehilimBook5') }}
+        <div class="flex gap-4 mb-6"
+             x-data="{
+                activeBook: null
+             }">
+            <button @click="displayTehilim(1); activeBook = 1"
+                    :class="activeBook === 1 ? 'border-slate-600' : 'border-slate-200'"
+                    class="book-link py-2.5 px-4 text-sm border border-slate-200 rounded transition-colors hover:border-slate-400">Livre 1</button>
+            <button @click="displayTehilim(2); activeBook = 2"
+                    :class="activeBook === 2  ? 'border-slate-600' : 'border-slate-200'"
+                    class="book-link py-2.5 px-4 text-sm border border-slate-200 rounded transition-colors hover:border-slate-400">Livre 2</button>
+            <button @click="displayTehilim(3); activeBook = 3"
+                    :class="activeBook === 3 ? 'border-slate-600' : 'border-slate-200'"
+                    class="book-link py-2.5 px-4 text-sm border border-slate-200 rounded transition-colors hover:border-slate-400">Livre 3</button>
+            <button @click="displayTehilim(4); activeBook = 4"
+                    :class="activeBook === 4 ? 'border-slate-600' : 'border-slate-200'"
+                    class="book-link py-2.5 px-4 text-sm border border-slate-200 rounded transition-colors hover:border-slate-400">Livre 4</button>
+            <button @click="displayTehilim(5); activeBook = 5"
+                    :class="activeBook === 5 ? 'border-slate-600' : 'border-slate-200'"
+                    class="book-link py-2.5 px-4 text-sm border border-slate-200 rounded transition-colors hover:border-slate-400">Livre 5</button>
+        </div>
+
+        <ol class="flex flex-wrap gap-2">
+            <template x-for="(chapters, index) in text" :key="index">
+                <li class="w-10 h-10 book-part">
+                    <button
+                        @click="toggleChapter(index)"
+                        class="grid place-content-center w-10 h-10 text-sm transition-colors hover:bg-slate-100"
+                        :class="chapterActive(index) ? 'bg-slate-200' : 'bg-slate-50 text-inherit'"
+                        x-text="index + 1"></button>
+                </li>
+            </template>
+        </ol>
+
     </div>
+
     <template x-for="(chapters, index) in text" :key="index">
         <template x-if="chapterActive(index)">
             <div class="my-6">

@@ -36,14 +36,6 @@ export function tanakh() {
                 document.body.classList.remove('overflow-y-hidden');
             },
 
-            closeTehilim() {
-                this.chapter = 0;
-            },
-
-            openTikounHaklali() {
-                this.chapter = 15;
-            },
-
             /**
              *
              */
@@ -78,7 +70,7 @@ export function tanakh() {
                 } else {
                     this.toggleChapter(this.chapter + 1);
                 }
-            }
+            },
         }));
     });
 }
