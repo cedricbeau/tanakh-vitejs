@@ -1,0 +1,19 @@
+<!-- https://github.com/jbmoelker/nunjucks-bootstrap/blob/master/src/nav/breadcrumb/breadcrumb.html -->
+
+{%- macro list() -%}
+    <ol class="flex mt-6">
+        {#- -#}{{ caller() }}{#- -#}
+    </ol>
+{%- endmacro -%}
+
+{%- macro item(text, url) -%}
+    <li class="after:content-['/'] after:mx-6 after:text-slate-300">
+        {#- -#}<a href="{{ url }}" title="" class="text-slate-400 transition-colors hover:text-slate-600">{{ text }}</a>{#- -#}
+    </li>
+{%- endmacro -%}
+
+{%- macro activeItem(text) -%}
+    <li>
+        {#- -#}<span>{{ text }}</span>{#- -#}
+    </li>
+{%- endmacro -%}
