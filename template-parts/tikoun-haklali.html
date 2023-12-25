@@ -14,22 +14,4 @@
             </li>
         </template>
     </ol>
-
-    <template x-for="(chapters, index) in text" :key="index">
-        <template x-if="chapterActive(index)">
-            <div class="my-6"
-                 x-show="tikounHaklali.includes(index)">
-
-                <h3 class="my-6 font-serif text-xl">Tehilim  <span x-text="index + 1"></span></h3>
-
-                <div class="verses-container">
-                    <template x-for="(chapter, index) in chapters" :key="index">
-                        <p x-text="chapter"
-                        class="verse mb-2"></p>
-                    </template>
-                </div>
-
-            </div>
-        </template>
-    </template>
 </div>

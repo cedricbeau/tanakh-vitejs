@@ -18,7 +18,17 @@
     </div>
     <div>
         <div x-show="currentTab === 1">
-            {% include './sefer-chapters.html' %}
+            <ol class="flex flex-wrap gap-2">
+                <template x-for="(chapters, index) in text" :key="index">
+                    <li class="w-10 h-10">
+                        <button
+                            @click="toggleChapter(index)"
+                            class="grid place-content-center w-10 h-10 text-sm transition-colors hover:bg-slate-100"
+                            :class="chapterActive(index) ? 'bg-slate-200' : 'bg-slate-50 text-inherit'"
+                            x-text="index + 1"></button>
+                    </li>
+                </template>
+            </ol>
         </div>
         <div x-show="currentTab === 2">
             {% include './tehilim-cycle.html' %}
@@ -30,4 +40,23 @@
             {% include './tikoun-haklali.html' %}
         </div>
     </div>
+
+    <template x-for="(chapters, index) in text" :key="index">
+        <template x-if="chapterActive(index)">
+            <div class="mt-6">
+                <h3 class="my-6 font-serif text-xl">Tehilim  <span x-text="index + 1"></span></h3>
+
+                <div class="verses-container">
+                    <template x-for="(chapter, index) in chapters" :key="index">
+                        <p x-text="chapter"
+                        class="verse mb-2"></p>
+                    </template>
+                </div>
+
+                <div x-show="currentTab === 1">
+                    {% include './pagination.html' %}
+                </div>
+            </div>
+        </template>
+    </template>
 </div>

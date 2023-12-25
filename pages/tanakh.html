@@ -25,26 +25,26 @@
                     id: 1,
                     title: 'Torah - Les 5 livres de Moïse',
                     description: 'La Torah est la première partie du Tanakh. C’est le livre le plus sacré du judaïsme. Elle est composée de cinq livres que l’on appelle parfois les cinq livres de Moïse car, selon la tradition, ils furent dictés par Dieu à Moïse.',
-                    url: 'torah.html'
+                    file: 'torah.html'
                 },
                 2: {
                     id: 2,
                     title: 'Nevi\'im - Prophètes',
                     description: 'Le livre des Néviim est la deuxième partie du Tanakh. Il raconte l\’histoire du peuple juif depuis la mort de Moïse jusqu\’à la construction du Second Temple de Jérusalem, c\'est-à-dire sur une période d\’environ huit siècles !',
-                    url: 'prophetes.html'
+                    file: 'prophetes.html'
                 },
                 3: {
                     id: 3,
                     title: 'Ketouvim - Hagiographes',
                     description : 'Le livre des Kétouvim est la troisième partie du Tanakh. Il est composé de textes très variés, c\’est pourquoi on l\’appelle tout simplement « Écrits » - Kétouvim en hébreu.',
-                    url: 'hagiographes.html'
+                    file: 'hagiographes.html'
                 }
             }
         }"
         class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <template x-for="link in navigation">
             <li class="relative">
-                <a :href="baseUrl+path+link.url" :title="link.title" class="block pb-2 mb-4 border-b border-slate-200 font-serif text-2xl text-slate-400 transition-colors hover:text-slate-900 hover:border-slate-400 after:absolute after:inset-0" x-text="link.title"></a>
+                <a :href="baseUrl+path+link.file" :title="link.title" class="block pb-2 mb-4 border-b border-slate-200 font-serif text-2xl text-slate-400 transition-colors hover:text-slate-900 hover:border-slate-400 after:absolute after:inset-0" x-text="link.title"></a>
                 <p x-text="link.description"></p>
             </li>
         </template>

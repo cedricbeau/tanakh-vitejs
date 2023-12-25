@@ -1,12 +1,10 @@
 import './style.css'
 import { currentDate } from './currentDate.js'
 import { tanakh } from './tanakh.js'
-import { tehilim } from './tehilim.js'
 import Alpine from 'alpinejs'
 window.Alpine = Alpine
 
 currentDate();
 tanakh();
-tehilim();
 
 Alpine.start();

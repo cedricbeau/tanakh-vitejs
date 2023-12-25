@@ -4,7 +4,7 @@
             <li :id="sefer.id">
                 <button
                     :data-sefer="'sefer-' + sefer.id"
-                    @click="loadSefer(baseUrl+path+sefarim[index].url); openSefer()"
+                    @click="loadSefer(baseUrl+path+sefarim[index].file); openSefer()"
                     class="group text-left">
                     <span class="block pb-2 mb-4 border-b border-slate-200 font-serif text-2xl text-slate-400 transition-colors group-hover:text-slate-900 group-hover:border-slate-400" x-text="sefer.name"></span>
                     <span x-text="sefer.resume"></span>
