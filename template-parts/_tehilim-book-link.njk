@@ -1,0 +1,5 @@
+{% macro link(number) %}
+<button @click="displayTehilim({{ number }}); activeBook = {{ number }}"
+        :class="activeBook === {{ number }} ? 'border-slate-600' : 'border-slate-200'"
+        class="book-link py-2.5 px-4 text-sm border border-slate-200 rounded transition-colors hover:border-slate-400">Livre {{ number }}</button>
+{% endmacro %}

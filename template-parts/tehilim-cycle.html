@@ -1,68 +1,27 @@
-{% import './_tehilim-book.njk' as book %}
-<div x-data="{
-    tehilimDay1: [0,1,2,3,4,5,6,7,8],
-    tehilimDay2: [9,10,11,12,13,14,15,16],
-    tehilimDay3: [17,18,19,20,21],
-    tehilimDay4: [22,23,24,25,26,27],
-    tehilimDay5: [28,29,30,31,3,33],
-    tehilimDay6: [34,35,36,37],
-    tehilimDay7: [38,39,40,41,42],
-    tehilimDay8: [43,44,45,46,47],
-    tehilimDay9: [48,49,50,51,52,53],
-    tehilimDay10: [54,55,56,57,58],
-    tehilimDay11: [59,60,61,62,63,64],
-    tehilimDay12: [65,66,67],
-    tehilimDay13: [68,69,70],
-    tehilimDay14: [71,72,73,74,75],
-    tehilimDay15: [76,77],
-    tehilimDay16: [78,79,80,81],
-    tehilimDay17: [82,83,84,85,86],
-    tehilimDay18: [87,88],
-    tehilimDay19: [89,90,91,92,93,94,95],
-    tehilimDay20: [96,97,98,99,100,101,102],
-    tehilimDay21: [103,104],
-    tehilimDay22: [105,106],
-    tehilimDay23: [107,108,109,110,111],
-    tehilimDay24: [112,113,114,115,116,117],
-    tehilimDay25: [118],
-    tehilimDay26: [118],
-    tehilimDay27: [119,120,121,122,123,124,125,126,127,128,129,130,131,132,133],
-    tehilimDay28: [134,135,136,137,138],
-    tehilimDay29: [139,140,141,142,143],
-    tehilimDay30: [144,145,146,147,148,149]
-}">
-    <div>
-        {{ book.book('Jour 1', 'tehilimDay1') }}
-        {{ book.book('Jour 2', 'tehilimDay2') }}
-        {{ book.book('Jour 3', 'tehilimDay3') }}
-        {{ book.book('Jour 4', 'tehilimDay4') }}
-        {{ book.book('Jour 5', 'tehilimDay5') }}
-        {{ book.book('Jour 6', 'tehilimDay6') }}
-        {{ book.book('Jour 7', 'tehilimDay7') }}
-        {{ book.book('Jour 8', 'tehilimDay8') }}
-        {{ book.book('Jour 9', 'tehilimDay9') }}
-        {{ book.book('Jour 10', 'tehilimDay10') }}
-        {{ book.book('Jour 11', 'tehilimDay11') }}
-        {{ book.book('Jour 12', 'tehilimDay12') }}
-        {{ book.book('Jour 13', 'tehilimDay13') }}
-        {{ book.book('Jour 14', 'tehilimDay14') }}
-        {{ book.book('Jour 15', 'tehilimDay15') }}
-        {{ book.book('Jour 16', 'tehilimDay16') }}
-        {{ book.book('Jour 17', 'tehilimDay17') }}
-        {{ book.book('Jour 18', 'tehilimDay18') }}
-        {{ book.book('Jour 19', 'tehilimDay19') }}
-        {{ book.book('Jour 20', 'tehilimDay20') }}
-        {{ book.book('Jour 21', 'tehilimDay21') }}
-        {{ book.book('Jour 22', 'tehilimDay22') }}
-        {{ book.book('Jour 23', 'tehilimDay23') }}
-        {{ book.book('Jour 24', 'tehilimDay24') }}
-        {{ book.book('Jour 25', 'tehilimDay25') }}
-        {{ book.book('Jour 26', 'tehilimDay26') }}
-        {{ book.book('Jour 27', 'tehilimDay27') }}
-        {{ book.book('Jour 28', 'tehilimDay28') }}
-        {{ book.book('Jour 29', 'tehilimDay29') }}
-        {{ book.book('Jour 30', 'tehilimDay30') }}
+{% import './_tehilim-cycle-link.njk' as link %}
+<div>
+    <div x-data="{
+        activeBook: null
+    }">
+        <div class="flex flex-wrap gap-4 mb-6">
+            {% for i in range(1, 31) %}
+                {{ link.link(i) }}
+            {% endfor %}
+        </div>
+
+        <ol class="flex flex-wrap gap-2">
+            <template x-for="(chapters, index) in text" :key="index">
+                <li class="w-10 h-10 cycle-part">
+                    <button
+                        @click="toggleChapter(index)"
+                        class="grid place-content-center w-10 h-10 text-sm transition-colors hover:bg-slate-100"
+                        :class="chapterActive(index) ? 'bg-slate-200' : 'bg-slate-50 text-inherit'"
+                        x-text="index + 1"></button>
+                </li>
+            </template>
+        </ol>
     </div>
+
     <template x-for="(chapters, index) in text" :key="index">
         <template x-if="chapterActive(index)">
             <div class="my-6">

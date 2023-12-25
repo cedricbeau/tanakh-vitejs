@@ -65,15 +65,20 @@ export function tehilim() {
             },
 
             displayTehilim: function(book) {
-                const indiceBook = this.getTehilim(book);
+                const indices = this.getTehilim(book);
                 const bookParts = document.querySelectorAll('.book-part');
 
                 Array.from(bookParts).forEach((element, index) => {
-                  if (indiceBook.includes(index)) {
-                    element.style.display = 'block';
-                  } else {
-                    element.style.display = 'none';
-                  }
+                    element.style.display = indices.includes(index) ? 'block' : 'none';
+                });
+            },
+
+            displayTehilimCycle: function(book) {
+                const indices = this.getTehilimCycle(book);
+                const bookParts = document.querySelectorAll('.cycle-part');
+
+                Array.from(bookParts).forEach((element, index) => {
+                    element.style.display = indices.includes(index) ? 'block' : 'none';
                 });
             },
 
@@ -93,7 +98,75 @@ export function tehilim() {
                     console.error('Filtre inconnu');
                     return [];
                 }
-            }
+            },
+
+            getTehilimCycle: function(book) {
+                switch (book) {
+                    case 1:
+                    return [0,1,2,3,4,5,6,7,8];
+                    case 2:
+                    return [9,10,11,12,13,14,15,16];
+                    case 3:
+                    return [17,18,19,20,21];
+                    case 4:
+                    return [22,23,24,25,26,27];
+                    case 5:
+                    return [28,29,30,31,32,33];
+                    case 6:
+                    return [34,35,36,37];
+                    case 7:
+                    return [38,39,40,41,42];
+                    case 8:
+                    return [43,44,45,46,47];
+                    case 9:
+                    return [48,49,50,51,52,53];
+                    case 10:
+                    return [54,55,56,57,58];
+                    case 11:
+                    return [59,60,61,62,63,64];
+                    case 12:
+                    return [65,66,67];
+                    case 13:
+                    return [68,69,70];
+                    case 14:
+                    return [71,72,73,74,75];
+                    case 15:
+                    return [76,77];
+                    case 16:
+                    return [78,79,80,81];
+                    case 17:
+                    return [82,83,84,85,86];
+                    case 18:
+                    return [87,88];
+                    case 19:
+                    return [89,90,91,92,93,94,95];
+                    case 20:
+                    return [96,97,98,99,100,101,102];
+                    case 21:
+                    return [103,104];
+                    case 22:
+                    return [105,106];
+                    case 23:
+                    return [107,108,109,110,111];
+                    case 24:
+                    return [112,113,114,115,116,117];
+                    case 25:
+                    return [118];
+                    case 26:
+                    return [118];
+                    case 27:
+                    return [119,120,121,122,123,124,125,126,127,128,129,130,131,132,133];
+                    case 28:
+                    return [134,135,136,137,138];
+                    case 29:
+                    return [139,140,141,142,143];
+                    case 30:
+                    return [144,145,146,147,148,149];
+                    default:
+                    console.error('Filtre inconnu');
+                    return [];
+                }
+            },
         }));
     });
 }
