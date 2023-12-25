@@ -82,7 +82,7 @@ export function tanakh() {
                 this.chapter = 15;
             },
 
-            displayTehilim: function(book) {
+            displayTehilimBook: function(book) {
                 const indices = this.getTehilimBook(book);
                 const bookParts = document.querySelectorAll('.book-part');
 
