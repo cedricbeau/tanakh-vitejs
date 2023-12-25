@@ -1,5 +1,5 @@
 {% set body_class = 'pirkei-avot' %}
-{% set title = 'Pirkei Avot' %}
+{% set title = 'Pirkei Avot - Maximes des pères' %}
 {% extends '_layout.njk' %}
 {% import './template-parts/_breadcrumb.njk' as breadcrumb %}
 
@@ -11,35 +11,45 @@
         {% endcall %}
     </div>
     <div class="p-4 md:p-6 mb-6 md:mb-8 lg:mb-10 bg-slate-50 border border-slate-200 rouned">
-        <p>Pirkei Avot / l’Éthique des Pères contient une sagesse intemporelle. C’est une collection de leçons d’éthique et d’honnêteté et de conseils. Mais au tout début, elle nous dit que même cette partie de la vie juive venait du Sinaï. Tout cela fait partie du judaïsme.</p>
+        <p>Pirkei Avot / Maximes des Pères contient une sagesse intemporelle. C’est une collection de leçons d’éthique, d’honnêteté et de conseils.</p>
     </div>
-    <ul>
-        <li>
-            <a href="#">Ethique des Pères - Chapitre Un</a>
-            <p>Moïse reçut la Torah au Sinaï et la transmit à Josué; Josué la transmit aux Anciens, les Anciens aux Prophètes et les Prophètes la transmirent aux Hommes de la Grande Assemblée. Ceux-ci énoncèrent trois principes: soyez circonspects dans le jugement, formez de nombreux disciples et établissez une clôture autour de la Torah…</p>
-        </li>
-        <li>
-            <a href="#">Ethique des Pères - Chapitre Deux</a>
-            <p>Rabbi [Yehoudah HaNassi] dit: Quelle est la voie de rectitude que l’homme doit adopter? Tout ce qui l’honore à ses propres yeux et l’honore aux yeux d’autrui…</p>
-        </li>
-        <li>
-            <a href="#">Ethique des Pères - Chapitre Trois</a>
-            <p>Akavia ben Mahalalel dit: Considère trois choses et tu n’en viendras pas à la transgression: sache d’où tu proviens, où tu aboutiras et devant qui tu es appelé à rendre compte…</p>
-        </li>
-        <li>
-            <a href="#">Ethique des Pères - Chapitre Quatre</a>
-            <p>Ben Zoma dit: Quel est le sage? C’est celui qui apprend de toute personne. Quel est le puissant? C’est celui qui contient son [mauvais] penchant. Quel est le riche? C’est celui qui est heureux de ce qu’il possède. Qui est l’objet d’honneurs? C’est celui qui honore les créatures…</p>
-        </li>
-        <li>
-            <a href="#">Ethique des Pères - Chapitre Cinq</a>
-            <p>Le monde fut créé à travers dix paroles. Qu’est-ce que cela vient nous apprendre? En effet, le monde aurait certainement pu être créé par une seule parole…</p>
-        </li>
-        <li>
-            <a href="#">Ethique des Pères - Chapitre Six</a>
-            <p>Rabbi Meïr dit: Celui qui se consacre à l’étude de la Torah de façon désintéressée acquiert de nombreux mérites, et il n’est pas jusqu’au monde entier qui ne vaille que pour lui…</p>
-        </li>
-    </ul>
-
-
-
+    <div x-data="{
+        chapters: [
+            {
+                id: 1,
+                resume: 'Moïse reçut la Torah au Sinaï et la transmit à Josué; Josué la transmit aux Anciens, les Anciens aux Prophètes et les Prophètes la transmirent aux Hommes…'
+            },
+            {
+                id: 2,
+                resume: 'Rabbi [Yehoudah HaNassi] dit: Quelle est la voie de rectitude que l\’homme doit adopter ? Tout ce qui l\’honore à ses propres yeux et l\’honore aux yeux d\’autrui…'
+            },
+            {
+                id: 3,
+                resume: 'Akavia ben Mahalalel dit: Considère trois choses et tu n\’en viendras pas à la transgression: sache d\’où tu proviens, où tu aboutiras et devant qui tu es appelé à rendre compte…'
+            },
+            {
+                id: 4,
+                resume: 'Ben Zoma dit: Quel est le sage ? C\’est celui qui apprend de toute personne. Quel est le puissant ? C\’est celui qui contient son [mauvais] penchant. Quel est le riche ?…'
+            },
+            {
+                id: 5,
+                resume: 'Le monde fut créé à travers dix paroles. Qu\’est-ce que cela vient nous apprendre ? En effet, le monde aurait certainement pu être créé par une seule parole…'
+            },
+            {
+                id: 6,
+                resume: 'Rabbi Meïr dit : Celui qui se consacre à l\’étude de la Torah de façon désintéressée acquiert de nombreux mérites, et il n\’est pas jusqu\’au monde entier qui ne vaille que pour lui…'
+            }
+        ]
+    }">
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <template x-for="(chapter, index) in chapters">
+                <li class="relative">
+                    <a href="#"
+                       title=""
+                       class="block pb-2 mb-4 border-b border-slate-200 font-serif text-2xl text-slate-400 transition-colors hover:text-slate-900 hover:border-slate-400 after:absolute after:inset-0">Chapitre <span x-text="chapter.id"></span></a>
+                    <p x-text="chapter.resume"></p>
+                </li>
+            </template>
+        </ul>
+    </div>
 {% endblock %}
